@@ -1,7 +1,6 @@
 body {
     background-color: #A1F2EC;
-    background-repeat: no-repeat;
-    background-size: 1300px;
+    
 }
 #canvas {
     display: block;
@@ -12,13 +11,12 @@ body {
 
 .buttons {
     display:block;
-    height: 28px;
 }
 
 #start{
-    width: 100px;
+    width: ;
 }
 
 #stop{
-    width: 100px;
+    width: ;
 }

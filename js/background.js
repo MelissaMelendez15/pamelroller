@@ -28,7 +28,7 @@ class Background {
         this.h
     )
 
-    this.ctx.drawImage(
+    this.ctx.drawImage( // se repite el fondo para hacer que donde termine una, inicie la siguiente
         this.img,
         this.x + this.ctx.canvas.width,
         this.y,
@@ -46,7 +46,7 @@ class Background {
     this.x += this.vx
     this.y += this.vy
 
-    if(this.x + this.w <= 0)
+    if(this.x + this.w <= 0) // la posicion x + el ancho si es menor a 0 se reinicia
     this.x = 0
 
 }
