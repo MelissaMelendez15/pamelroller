@@ -1,13 +1,24 @@
+body {
+    background-color: #A1F2EC;
+    background-repeat: no-repeat;
+    background-size: 1300px;
+}
 #canvas {
     display: block;
     border: 1px;
-    margin: 0 auto
+    margin:  auto;
+    margin-top: 25px;
 }
 
 .buttons {
-    display:flex;
-    justify-content: space-evenly;
-    padding: 10px 300px;
-    
-    
+    display:block;
+    height: 28px;
+}
+
+#start{
+    width: 100px;
+}
+
+#stop{
+    width: 100px;
 }
