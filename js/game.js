@@ -9,6 +9,7 @@ class Game{
 
         this.background = new Background(ctx)
         this.pamel = new Pamel(ctx)
+
     }
     
     start (){ // boton inicio del juego con la llamada en index
@@ -36,4 +37,12 @@ class Game{
     stop(){
 
     }
+
+    gameOver() {
+        this.img = new Image()
+        this.img.src = "../images/dead.png"
+        clearInterval(this.intervalId);
+      }
+
+       
 }

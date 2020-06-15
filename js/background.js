@@ -35,10 +35,7 @@ class Background {
         this.w,
         this.h
     )
-
-
 }
-
     move(){
     this.vx += this.ax,
     this.vy += this.ay

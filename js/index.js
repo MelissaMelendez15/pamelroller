@@ -5,7 +5,7 @@ window.onload = () => {
     const game = new Game(ctx)
 
     document.getElementById ('start').onclick = () => {
-        game.start()
+        game.start('start')
     }
 
     document.getElementById('stop').onclick = () => {
@@ -13,6 +13,4 @@ window.onload = () => {
 }
 
 }
-//onclick para un solo click que queremos hacer por ejemplo play
-// Para dos botones por ejemplo stop y play ya se usa
-//addEventListener??
+//onclick para un solo click que queremos hacer por ejemplo play 

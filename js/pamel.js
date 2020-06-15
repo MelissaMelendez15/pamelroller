@@ -3,7 +3,8 @@
 class Pamel{
     constructor(ctx){
     this.ctx = ctx
-
+    
+   
     this.x = 50 //posicion del personaje
     this.y = 350
 
@@ -23,39 +24,45 @@ class Pamel{
 
     this.ticks = 0 // tiempo de la imagen
 
+
     }
 
    draw(){
     this.ctx.drawImage(
         this.img,
-        this.img.frameIndex * this.img.width / this.img.frames,
-        0, // velocidad Y
-        this.img.width / this.img.frames,
+        this.img.frameIndex * Math.floor(this.img.width / this.img.frames),
+        0, // velocidad
+        Math.floor(this.img.width / this.img.frames),
         this.img.height,
         this.x,
         this.y,
         this.w,
         this.h
     )
-     this.ticks++ // cada vez que haga un dibujo incremento
-
-     if(this.ticks > 1000){
+     
+     if(this.ticks++ > 10){ // Se pinta cada 100 entonces el contador se incrementa
          this.ticks = 0
      }
+
+     if(++this.img.frameIndex >= this.img.frames){ // Para que vuelva a repetir los movimientos
+        this.img.frameIndex = 0
+    }
     }
 
-   move(){
+   move(dir){
+
+    dir === 'TOP' ? this.y -= this.vy : null
+    dir === 'RIGHT' ? this.x += this.vx : null
+    dir === 'DOWN' ? this.y += this.vy : null
+
     this.vx += this.ax,
     this.vy += this.ay
 
     this.x += this.vx
     this.y += this.vy
 
-    this.img.frameIndex++ // se incrementa frameIndex para que se mueva
-
-    if(this.img.frameIndex >= this.img.frames){ // Para que vuelva a repetir los movimientos
-        this.img.frameIndex = 0
     }
 
+
+    
     }
-}
