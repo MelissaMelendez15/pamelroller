@@ -12,7 +12,10 @@ class Pamel{
     this.vy = 0
 
     this.ax = 0 // aceleracion
-    this.ay = 0
+    this.ay = 0.1
+
+    this.y0 = this.y
+    this.gravity = 0
 
     this.w = 100 // tamaño del personaje
     this.h = 120
@@ -24,15 +27,15 @@ class Pamel{
 
     this.ticks = 0 // tiempo de la imagen
 
-
+    new MovePamel(this).init()
     }
 
    draw(){
     this.ctx.drawImage(
         this.img,
-        this.img.frameIndex * Math.floor(this.img.width / this.img.frames),
+        this.img.frameIndex * this.img.width / this.img.frames,
         0, // velocidad
-        Math.floor(this.img.width / this.img.frames),
+        this.img.width / this.img.frames,
         this.img.height,
         this.x,
         this.y,
@@ -40,20 +43,17 @@ class Pamel{
         this.h
     )
      
-     if(this.ticks++ > 10){ // Se pinta cada 100 entonces el contador se incrementa
+     if(this.ticks++ > 10){ // Se pinta cada 10 entonces el contador se incrementa
          this.ticks = 0
      }
 
      if(++this.img.frameIndex >= this.img.frames){ // Para que vuelva a repetir los movimientos
         this.img.frameIndex = 0
     }
+
     }
 
-   move(dir){
-
-    dir === 'TOP' ? this.y -= this.vy : null
-    dir === 'RIGHT' ? this.x += this.vx : null
-    dir === 'DOWN' ? this.y += this.vy : null
+   move(){
 
     this.vx += this.ax,
     this.vy += this.ay
@@ -61,8 +61,11 @@ class Pamel{
     this.x += this.vx
     this.y += this.vy
 
+    if(this.y >= this.y0){
+        this.vy = 0.5
+        this.y = this.y0 // no deja que la muñeca baje
+    }
+       
     }
 
-
-    
-    }
+}

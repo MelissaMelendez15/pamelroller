@@ -9,6 +9,13 @@ class Game{
 
         this.background = new Background(ctx)
         this.pamel = new Pamel(ctx)
+        //this.obstacles = new Obstacles(ctx)
+
+        // this.keys = {
+        //     TOP: 38,
+        //     DOWN: 40,
+        //     RIGHT: 39
+        // }
 
     }
     
@@ -39,10 +46,10 @@ class Game{
     }
 
     gameOver() {
-        this.img = new Image()
-        this.img.src = "../images/dead.png"
-        clearInterval(this.intervalId);
+        // this.img = new Image()
+        // this.img.src = "../images/dead.png"
+        // clearInterval(this.intervalId);
       }
 
-       
+
 }
