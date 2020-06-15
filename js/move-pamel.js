@@ -13,13 +13,15 @@ class MovePamel{
        document.addEventListener('keydown', (event) => {
          switch(event.keyCode){
              case this.keys.RIGHT:
-                 this.elem.vx += 3
+                 this.elem.vx += 1
                  break;
               case this.keys.DOWN:
-                  this.elem.vy += 3
+                  this.elem.vy += 5
+                  this.elem.y += 5
                   break;
               case this.keys.TOP:
-                    this.elem.vy -= 3
+                    this.elem.vy -= 10
+                    this.elem.y -= 10   
                     break;
          }
        })

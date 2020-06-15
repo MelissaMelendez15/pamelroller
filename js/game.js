@@ -9,7 +9,7 @@ class Game{
 
         this.background = new Background(ctx)
         this.pamel = new Pamel(ctx)
-        //this.obstacles = new Obstacles(ctx)
+        this.obstacles = new Obstacles(ctx)
 
         // this.keys = {
         //     TOP: 38,
@@ -34,11 +34,13 @@ class Game{
     draw(){
      this.background.draw()
      this.pamel.draw()
+     this.obstacles.draw()
     }
 
     move(){
      this.background.move()
      this.pamel.move()
+     this.obstacles.move()
     }
 
     stop(){

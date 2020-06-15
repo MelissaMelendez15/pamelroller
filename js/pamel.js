@@ -5,7 +5,7 @@ class Pamel{
     this.ctx = ctx
     
    
-    this.x = 50 //posicion del personaje
+    this.x = 100 //posicion del personaje
     this.y = 350
 
     this.vx = 0// velocidad
@@ -52,20 +52,30 @@ class Pamel{
     }
 
     }
-
-   move(){
-
-    this.vx += this.ax,
-    this.vy += this.ay
-
-    this.x += this.vx
-    this.y += this.vy
-
-    if(this.y >= this.y0){
-        this.vy = 0.5
-        this.y = this.y0 // no deja que la muñeca baje
+       move(){
+    this.x += 1 // sumar posicion cuando se presiona tecla derecha, no hace falta aceleracion en x
+    //Si la muñeca encuentra un precipicio o hueco, se cae hasta la y del precipicio
+    this.y_precip = 250
+    while (this.y <= this.y_precip){
+        this.vy += this.ay
+        this.y += this.vy
     }
-       
     }
-
+    jump() {
+    this.vy = this.vy0 //velocidad inicial por el impulso del salto
+    //Aqui esta saltando, sube arriba
+    while (this.vy > 0) {
+        this.vy -= this.ay
+        this.y -= this.vy
+    }
+    //Aqui esta en caida libre, y cae hasta la altura base (y0)
+    if (this.vy <= 0) {
+        while (this.y <= this.y0) {
+            this.vy += this.ay
+            this.y += this.vy
+        }
+    }
+    
 }
+
+}   
