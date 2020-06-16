@@ -15,13 +15,15 @@ class MovePamel{
              case this.keys.RIGHT:
                  this.elem.vx += 1
                  break;
-              case this.keys.DOWN:
-                  this.elem.vy += 5
-                  this.elem.y += 5
-                  break;
+            //   case this.keys.DOWN:
+            //       this.elem.vy += 5 // Miraremos hacer que el personaje automaticamente
+            //       this.elem.y += 5  // baje cuando salga de la segunda planta
+            //       break;
               case this.keys.TOP:
-                    this.elem.vy -= 10
-                    this.elem.y -= 10   
+                  if(this.elem.y === this.elem.y0){ //this.elem.jump si se pasa a pamel en metodo JUMP
+                  this.elem.vy -= 15
+                  this.elem.y -= 10
+                  }
                     break;
          }
        })

@@ -9,38 +9,48 @@ class Game{
 
         this.background = new Background(ctx)
         this.pamel = new Pamel(ctx)
-        this.obstacles = new Obstacles(ctx)
+        this.rocks = new Rocks(ctx)
 
-        // this.keys = {
-        //     TOP: 38,
-        //     DOWN: 40,
-        //     RIGHT: 39
-        // }
+        this.rocks = []
+        this.ticksRocks = 0
 
     }
     
     start (){ // boton inicio del juego con la llamada en index
     this._intervalId = setInterval(() =>{
+
          this.clear()
+         this.addRocks()
          this.draw()
-         this.move()
-    },1000/60)
+         this.move()    
+
+    },1000/30)
     }
 
     clear() {
+
         this.ctx.clearRect(0,0, this.ctx.canvas.width,this.ctx.canvas.height)
+
+    //     this.rocks.filter((rock) => {
+    //         rock.rocksPos.x + rock.rocksSize.w > 0
+    // })
     }
 
     draw(){
      this.background.draw()
      this.pamel.draw()
-     this.obstacles.draw()
+     this.rocks.forEach((rocks) => {
+         rocks.draw()
+     })
+
     }
 
     move(){
      this.background.move()
      this.pamel.move()
-     this.obstacles.move()
+     this.rocks.forEach((rocks) => {
+        rocks.move()
+    })
     }
 
     stop(){
@@ -53,5 +63,12 @@ class Game{
         // clearInterval(this.intervalId);
       }
 
+      addRocks(){
+        if(this.ticksRocks++ === 250){
+            this.ticksRocks = 0
+        }
+        this.rocks.push(new Rocks(ctx))
+ 
+     }
 
 }
