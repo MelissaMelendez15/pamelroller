@@ -12,7 +12,7 @@ class Pamel{
     this.vy = 0
 
     this.ax = 0 // aceleracion
-    this.ay = 0.8
+    this.ay = 0.9
 
     this.y0 = this.y
     // this.gravity = 0

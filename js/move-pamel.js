@@ -13,7 +13,7 @@ class MovePamel{
        document.addEventListener('keydown', (event) => {
          switch(event.keyCode){
              case this.keys.RIGHT:
-                 this.elem.vx += 1
+                 this.elem.vx += 1.5
                  break;
             //   case this.keys.DOWN:
             //       this.elem.vy += 5 // Miraremos hacer que el personaje automaticamente

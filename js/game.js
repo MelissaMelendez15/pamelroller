@@ -1,4 +1,3 @@
-
 // Todo lo general del juego 
 
 class Game{
@@ -10,9 +9,12 @@ class Game{
         this.background = new Background(ctx)
         this.pamel = new Pamel(ctx)
         this.rocks = new Rocks(ctx)
+        // this.star = new Star(ctx)
 
         this.rocks = []
         this.ticksRocks = 0
+
+        this.frameCounter = 0
 
     }
     
@@ -30,24 +32,25 @@ class Game{
     clear() {
 
         this.ctx.clearRect(0,0, this.ctx.canvas.width,this.ctx.canvas.height)
-
-    //     this.rocks.filter((rock) => {
-    //         rock.rocksPos.x + rock.rocksSize.w > 0
-    // })
+        
+        this.rocks.filter((roc) => roc.rocksPos.x + roc.rocksSize.w > 0)
+    
     }
 
     draw(){
      this.background.draw()
      this.pamel.draw()
+     //this.star.draw()
      this.rocks.forEach((rocks) => {
          rocks.draw()
      })
-
+    
     }
 
     move(){
      this.background.move()
      this.pamel.move()
+    //  this.star.move()
      this.rocks.forEach((rocks) => {
         rocks.move()
     })
@@ -64,11 +67,14 @@ class Game{
       }
 
       addRocks(){
-        if(this.ticksRocks++ === 250){
+        if(this.ticksRocks++ === 2000){
             this.ticksRocks = 0
         }
-        this.rocks.push(new Rocks(ctx))
+       this.rocks.push(new Rocks(ctx))
+    }
  
      }
 
-}
+ 
+     
+
