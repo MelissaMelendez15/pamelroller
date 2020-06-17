@@ -2,21 +2,27 @@ body {
     background-color: #A1F2EC;
     
 }
+
 #canvas {
     display: block;
     border: 1px;
     margin:  auto;
-    margin-top: 25px;
 }
 
 .buttons {
-    display:block;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 #start{
+width: 4%;
+
 
 }
 
 #stop{
+   width: 4%;
    
 }
+
