@@ -15,7 +15,7 @@ class Background {
     this.ay = 0;
 
     this.img = new Image();
-    this.img.src = "/images/PamelBackground.png";
+    this.img.src = "images/PamelBackground.png";
   }
 
   draw() {
