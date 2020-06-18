@@ -1,26 +1,44 @@
 body {
   background-color: #a1f2ec;
+  background-image: url('../images/Pamelinicio.png');
+  background-repeat: no-repeat;
+}
+.init{
+  display: flex;
+
 }
 
 h1 {
-  font: "Dyuthi";
+  font-family: 'sans-serif';
   font-weight: 3em;
   font-size: 2.5em;
   font-style: oblique;
+  color: #FF6666;
 }
 #canvas {
-  display: block;
-  border: 1px;
-  margin-bottom: 25px;
+  margin: -7px;
 }
 
 .buttons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   margin: 0px 50px;
+  margin-bottom: 20px;
 }
 
 #start {
+  width: 5%;
+  height: 5%;
+  margin-top: 25px;
+  margin-right: 25px;
+}
+#pause {
+  width: 5%;
+  height: 5%;
+  margin-top: 25px;
+  margin-right: 25px;
+}
+#refresh {
   width: 5%;
   height: 5%;
   margin-top: 25px;

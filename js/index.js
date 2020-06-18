@@ -8,4 +8,13 @@ window.onload = () => {
         game.start('start')
     }
 
-}
+    document.getElementById('pause').onclick = () => {
+        game.stop('pause')
+    }
+
+    const refresh = document.getElementById('refresh');
+    refresh.addEventListener('click', () => {
+        window.location.reload()
+    })
+
+} 

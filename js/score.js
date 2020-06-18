@@ -6,8 +6,8 @@ class Score {
 
   draw(counter) {
     this.counter = counter;
-    this.ctx.font = "50px Comic Sans";
-    this.ctx.fillStyle = "green";
+    this.ctx.font = "30px Comic Sans";
+    this.ctx.fillStyle = "#FF6666";
     this.ctx.fillText(
       `Score: ${this.counter}`,
       this.ctx.canvas.width * 0.65,
@@ -17,7 +17,7 @@ class Score {
 
   scoreFinal() {
     this.ctx.font = "50px Comic Sans";
-    this.ctx.fillStyle = "black";
+    this.ctx.fillStyle = "#FF6666";
     this.ctx.fillText(
       `Score final: ${this.counter}`,
       this.ctx.canvas.width * 0.4,
@@ -32,8 +32,8 @@ class Health extends Score {
   }
   draw(counter) {
     this.counter = counter;
-    this.ctx.font = "50px Comic Sans";
-    this.ctx.fillStyle = "green";
+    this.ctx.font = "30px Comic Sans";
+    this.ctx.fillStyle = "#FF6666";
     this.ctx.fillText(
       `Health: ${this.counter}`,
       this.ctx.canvas.width * 0.1,

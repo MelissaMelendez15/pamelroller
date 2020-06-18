@@ -28,7 +28,7 @@ class Game {
 
     this.gameOver = false;
     this.gameOverImg = new Image();
-    this.gameOverImg.src = "images/gameover.png";
+    this.gameOverImg.src = "images/PamelGameOver.png";
 
     this.music = new Audio();
     this.music.src = "music/music.mp3";
@@ -147,6 +147,7 @@ class Game {
     }
   }
   stop() {
+    this.music.pause();
     clearInterval(this.intervalId);
   }
 }
