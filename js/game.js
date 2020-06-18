@@ -15,7 +15,7 @@ class Game {
     this.background = new Background(ctx);
     this.pamel = new Pamel(ctx);
     this.star = new Star(ctx);
-    //this.platform = new Platform(ctx);
+    //this.platform = new Platform(ctx)
     this.score = new Score(ctx);
     this.health = new Health(ctx);
 
@@ -30,6 +30,8 @@ class Game {
 
     this.frames = 0; // contador de puntos
 
+    this.counter = 0
+
     this.gameOver = false;
     this.gameOver = new Image();
     this.gameOver.src = "images/dead.png"
@@ -39,6 +41,10 @@ class Game {
   start() {
     // boton inicio del juego con la llamada en index
     this._intervalId = setInterval(() => {
+      if (this.counter > 100) {
+          this.counter = 0
+      }
+      this.counter++
       this.clear();
       this.addRocks();
       this.addStar();
@@ -47,6 +53,7 @@ class Game {
       this.draw();
       this.move();
     }, 1000 / 60);
+    
 
     setTimeout(() => {
         this.gameOver()
@@ -63,7 +70,7 @@ class Game {
 
   draw() {
     this.background.draw();
-    this.pamel.draw();
+    this.pamel.draw(this.counter);
     this.platform.forEach((floor) => {
       floor.draw();
     });

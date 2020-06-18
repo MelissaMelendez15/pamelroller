@@ -99,35 +99,26 @@ class Pamel {
         this.img.frameIndex = 0 
         this.img.src = "images/pamel.png"
 
-        this.ticks = 0 
-
         this.health = 5
 
         new Controls(this).init()
     }
 
-    draw() {
+    draw(counter) {
         this.ctx.drawImage(
             this.img,
-            this.img.frameIndex * this.img.width / this.img.frames,
+            this.img.frameIndex * Math.floor(this.img.width / this.img.frames),
             0, 
-            this.img.width / this.img.frames,
+            Math.floor(this.img.width / this.img.frames),
             this.img.height,
             this.x,
             this.y,
             this.w,
             this.h
         )
-
-        if (this.ticks++ > 10) { 
-            this.ticks = 0
-        }
-
-        if (++this.img.frameIndex >= this.img.frames) { 
-            this.img.frameIndex = 0
-        }
-
+        this.animate(counter)
     }
+    
     move() {
 
         this.vx += this.ax
@@ -148,6 +139,16 @@ class Pamel {
             this.vy -= 15
             this.y -= 10
         }
+    }
+
+    animate(counter) {
+        if (counter % 5 == 0) {
+            this.img.frameIndex++;
+        }
+        if (this.img.frameIndex > this.img.frames - 1) {
+            this.img.frameIndex = 0;
+        }
+        console.log(this.img.frameIndex)
     }
 
 }
