@@ -63,7 +63,7 @@ class Pamel {
 
     jump() {       
         if (this.y === this.y0) {
-            this.vy -= 15
+            this.vy -= 20
             this.y -= 10
         }
     }

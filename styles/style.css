@@ -1,24 +1,27 @@
 body {
-    background-color: #A1F2EC;
-    
+  background-color: #a1f2ec;
 }
 
+h1 {
+  font: "Dyuthi";
+  font-weight: 3em;
+  font-size: 2.5em;
+}
 #canvas {
-    display: block;
-    border: 1px;
-    margin-bottom: 25px;
+  display: block;
+  border: 1px;
+  margin-bottom: 25px;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0px 50px;
 }
 
-#start{
-width: 5%;
-
-
+#start {
+  width: 5%;
+  height: 5%;
+  margin-top: 25px;
+  margin-right: 25px;
 }
-
