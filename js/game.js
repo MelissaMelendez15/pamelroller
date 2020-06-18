@@ -160,23 +160,16 @@ class Game {
     });
 
     this.platform.forEach((floor) => {
+      
       const obsX =
         pamel.x < floor.x + floor.w && pamel.x + pamel.w > pamel.x;
       const obsY =
         pamel.y < floor.y + floor.h && pamel.y + pamel.h > floor.y;
 
-        if (pamel.x + pamel.w -100 > floor.x + floor.w)
-          pamel.y = 200
+        if (pamel.x + pamel.w - 100 > floor.x + floor.w)
+          pamel.y = 350
           pamel.y0 = pamel.y
-      
-      //   pamel.y = 300;
-      //   pamel.y0 = pamel.y;
-      //   if (pamel.x + pamel.width - 500 > floor.x + floor.width) {
-      //     // hace que se baje del ancho de la piedra
-      //     pamel.y = 500;
-      //     pamel.y0 = pamel.y;
-      //   }
-      // }
+    
     });
   }
 
