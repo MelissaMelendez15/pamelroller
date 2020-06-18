@@ -15,7 +15,7 @@ class Game {
     this.background = new Background(ctx);
     this.pamel = new Pamel(ctx);
     this.star = new Star(ctx);
-    //this.platform = new Platform(ctx)
+    //this.platform = new Platform(ctx);
     this.score = new Score(ctx);
     this.health = new Health(ctx);
 
@@ -32,6 +32,8 @@ class Game {
 
     this.gameOver = false;
     this.gameOver = new Image();
+    this.gameOver.src = "images/dead.png"
+
   }
 
   start() {
@@ -44,12 +46,11 @@ class Game {
       this.isCollision();
       this.draw();
       this.move();
-      //this.drawGameOver()
     }, 1000 / 60);
 
-    // setTimeout(() => {
-    //     this.gameOver()
-    // },20000)
+    setTimeout(() => {
+        this.gameOver()
+    },100000)
   }
 
   clear() {
@@ -138,7 +139,7 @@ class Game {
       if (obsX && obsY) {
         this.star.splice(i, 1);
         pamel.health++;
-        this.frames += 10; // gana 10 puntos en score
+        this.frames += 5; // gana 10 puntos en score
       }
     });
 

@@ -21,14 +21,7 @@ class Background {
   draw() {
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
 
-    this.ctx.drawImage(
-      // se repite el fondo para hacer que donde termine una, inicie la siguiente
-      this.img,
-      this.x + this.ctx.canvas.width,
-      this.y,
-      this.w,
-      this.h
-    );
+    this.ctx.drawImage(this.img,this.x + this.ctx.canvas.width,this.y,this.w,this.h);
   }
   move() {
     (this.vx += this.ax), (this.vy += this.ay);

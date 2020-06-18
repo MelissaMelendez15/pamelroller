@@ -101,7 +101,7 @@ class Pamel {
 
         this.ticks = 0 
 
-        this.health = 10
+        this.health = 5
 
         new Controls(this).init()
     }

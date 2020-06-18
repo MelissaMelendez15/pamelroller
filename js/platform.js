@@ -1,4 +1,4 @@
-class platform {
+class Platform {
     constructor(ctx) {
 
         this.ctx = ctx
@@ -24,7 +24,13 @@ class platform {
     }
 
     drow() {
-        this.ctx.drawImage(this.img, this.x, this.y, this.platform.w, this.platform.h)
+        this.ctx.drawImage(
+            this.img,
+            this.x,
+            this.y,
+            this.platform.w,
+            this.platform.h
+        )
 
     }
 
