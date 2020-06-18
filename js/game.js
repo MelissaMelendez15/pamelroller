@@ -32,8 +32,9 @@ class Game {
 
     this.counter = 0
 
-    this.gameOver = new Image();
-    this.gameOver.src = "images/gameover.png"
+    this.gameOver = false
+    this.gameOverImg = new Image();
+    this.gameOverImg.src = "images/gameover.png"
 
     this.music = new Audio()
     this.music.src = "music/music.mp3"
@@ -51,7 +52,7 @@ class Game {
   start() {
     this.music.play()
     // boton inicio del juego con la llamada en index
-    this._intervalId = setInterval(() => {
+    this.intervalId = setInterval(() => {
 
       if (this.counter > 100) {
           this.counter = 0
@@ -62,15 +63,15 @@ class Game {
       this.addStar();
       this.addPlatform();
       this.isCollision();
-      this.drawGameOver();
       this.draw();
       this.move();
+      this.drawGameOver();
     }, 1000 / 60);
     
 
-    setTimeout(() => {
-      this.stop()
-    },100000)
+    //setTimeout(() => {
+      //this.stop()
+   // },100000)
   }
 
   clear() {
@@ -94,6 +95,7 @@ class Game {
       e.draw();
     });
     this.score.draw(this.frames);
+    this.health.draw(this.pamel.health)
   }
 
   move() {
@@ -190,16 +192,16 @@ class Game {
   drawGameOver() {
     if (this.gameOver) {
       this.ctx.drawImage(
-        this.gameOver,
+        this.gameOverImg,
         this.x,
         this.y,
         this.w,
         this.h
       )
+      this.score.scoreFinal();
     }
   }
 stop() {
     clearInterval(this.intervalId);
-  
   }
 }
