@@ -148,7 +148,6 @@ class Pamel {
         if (this.img.frameIndex > this.img.frames - 1) {
             this.img.frameIndex = 0;
         }
-        console.log(this.img.frameIndex)
     }
 
 }
