@@ -4,7 +4,7 @@ class Rocks{
 
         this.ctx = ctx
 
-        this.canvasSize= {
+        this.canvasSize = { // es de la unica forma que funciona
             w: undefined,
             h: undefined
         }
@@ -24,13 +24,19 @@ class Rocks{
         this.gravity = 0 
 
         this.imag = new Image()
-        this.imag.src = '../images/rocks.png'
+        this.imag.src = 'images/rocks.png'
 
     }
 
     draw() {
         
-        this.ctx.drawImage(this.imag, this.x, this.y, this.w, this.h)
+        this.ctx.drawImage(
+        this.imag,
+        this.x,
+        this.y,
+        this.w,
+        this.h
+        )
 
     }
 

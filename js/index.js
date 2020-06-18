@@ -9,7 +9,7 @@ window.onload = () => {
     }
 
     document.getElementById('stop').onclick = () => {
-        game.stop()
+        game.stop('stop')
 }
 
 }

@@ -17,7 +17,7 @@ class Controls{
                     this.player.vx += 1.5
                     break;
                 case this.keys.LEFT:
-                    this.player.vx -= 1.5
+                    this.player.vx -= 2
                     break;
                 case this.keys.TOP:
                     this.player.jump()

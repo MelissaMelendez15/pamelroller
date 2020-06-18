@@ -1,31 +1,46 @@
-// class Star{
-//     constructor(ctx) {
-//         this.ctx = ctx
+class Star {
+    constructor(ctx) {
+        this.ctx = ctx
 
-//         this.x = 0
-//         this.y = 0
-    
-//         this.vx = 0
-//         this.vy = 0
-    
-//         this.ax = 0
-//         this.ay = 0
-    
-//         this.w = this.ctx.canvas.width
-//         this.h = this.ctx.canvas.height
-        
-//         this.imag = new Image()
-//         this.imag.src = '../images/star2.jpg'
+        this.canvasSize = {
+            w: undefined,
+            h: undefined
+        }
+
+        this.x = (Math.random() * 2000 + 120)
+        this.y = 50
+
+        this.vx = -4
+        this.vy = 2
+
+        this.ax = 0
+        this.ay = 0
+
+        this.w = 50
+        this.h = 50
+
+        this.imag = new Image()
+        this.imag.src = "images/star.png"
 
 
-//     }
-//     draw() {
-            
-   
+    }
+    draw() {
 
-//     }
+        this.ctx.drawImage(this.imag, this.x, this.y, this.w, this.h)
 
-//     move(){
+    }
 
-//     }
-// }
+    move() {
+         this.vx += this.ax
+         this.vy += this.ay
+        this.y += this.vy
+        this.x += this.vx
+
+
+         if (this.x + this.canvasSize.w <= 0) {
+             this.x = this.canvasSize.w * 0.70
+         }
+
+        //this.x += this.vx
+    }
+}
