@@ -1,54 +1,42 @@
 //funciones de los obstacles
-class Rocks{
-    constructor(ctx) {
+class Rocks {
+  constructor(ctx) {
+    this.ctx = ctx;
 
-        this.ctx = ctx
+    this.canvasSize = {
+      w: undefined,
+      h: undefined,
+    };
 
-        this.canvasSize = { // es de la unica forma que funciona
-            w: undefined,
-            h: undefined
-        }
+    this.w = 50;
+    this.h = 50;
 
-        this.w = 50
-        this.h = 50 
+    this.y = 50;
+    this.x = Math.random() * 2000 + 120;
 
-        this.y = 50 
-        this.x = (Math.random() * 2000 + 120)
+    this.vx = -5;
+    this.vy = 4;
 
-        this.vx = -5
-        this.vy = 4
+    this.ax = 0;
+    this.ay = 0;
 
-        this.ax = 0
-        this.ay = 0
+    this.gravity = 0;
 
-        this.gravity = 0 
+    this.imag = new Image();
+    this.imag.src = "images/rocks.png";
+  }
 
-        this.imag = new Image()
-        this.imag.src = 'images/rocks.png'
+  draw() {
+    this.ctx.drawImage(this.imag, this.x, this.y, this.w, this.h);
+  }
 
+  move() {
+    this.x += this.vx;
+    this.vy += this.gravity;
+    this.y += this.vy;
+
+    if (this.y + this.canvasSize.h <= 0) {
+      this.y = 0;
     }
-
-    draw() {
-        
-        this.ctx.drawImage(
-        this.imag,
-        this.x,
-        this.y,
-        this.w,
-        this.h
-        )
-
-    }
-
-    move() {
-        this.x += this.vx
-        this.vy += this.gravity
-        this.y += this.vy
-        
-        if(this.y + this.canvasSize.h <= 0){
-            this.y = 0
-        }
-    }
-
+  }
 }
-

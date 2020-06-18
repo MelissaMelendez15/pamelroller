@@ -9,4 +9,3 @@ window.onload = () => {
     }
 
 }
-//onclick para un solo click que queremos hacer por ejemplo play 

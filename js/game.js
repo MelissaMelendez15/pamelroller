@@ -1,5 +1,3 @@
-// Todo lo general del juego
-
 class Game {
   constructor(ctx) {
     this.ctx = ctx;
@@ -15,7 +13,6 @@ class Game {
     this.background = new Background(ctx);
     this.pamel = new Pamel(ctx);
     this.star = new Star(ctx);
-    //this.platformP = new Platform(ctx)
     this.score = new Score(ctx);
     this.health = new Health(ctx);
 
@@ -25,11 +22,9 @@ class Game {
     this.star = [];
     this.ticksStar = 0;
 
-    this.platform = [];
+    this.frames = 0;
 
-    this.frames = 0; // contador de SCORE
-
-    this.counter = 0; // contador de Pamel
+    this.counter = 0;
 
     this.gameOver = false;
     this.gameOverImg = new Image();
@@ -41,8 +36,6 @@ class Game {
     this.ouch.src = "music/ouch.mp3";
     this.points = new Audio();
     this.points.src = "music/star.mp3";
-    this.jumpm = new Audio();
-    this.jumpm = "music/jump.mp3";
     this.gameOverm = new Audio();
     this.gameOverm.src = "music/gameover.mp3";
   }
@@ -50,14 +43,13 @@ class Game {
   start() {
     this.music.play();
     this.intervalId = setInterval(() => {
-      if (this.counter > 250) {
+      if (this.counter > 500) {
         this.counter = 0;
       }
       this.counter++;
       this.clear();
       this.addRocks();
       this.addStar();
-      this.addPlatform();
       this.isCollision();
       this.draw();
       this.move();
@@ -69,15 +61,11 @@ class Game {
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     this.rocks.filter((obs) => obs.x + obs.w > 0);
     this.star.filter((e) => e.x + e.w < 0);
-    this.platform.filter((floor) => floor.x + floor.w < 0);
   }
 
   draw() {
     this.background.draw();
     this.pamel.draw(this.counter);
-    this.platform.forEach((floor) => {
-      floor.draw();
-    });
     this.rocks.forEach((obs) => {
       obs.draw();
     });
@@ -91,9 +79,6 @@ class Game {
   move() {
     this.background.move();
     this.pamel.move();
-    this.platform.forEach((floor) => {
-      floor.move();
-    });
     this.rocks.forEach((obs) => {
       obs.move();
     });
@@ -122,12 +107,6 @@ class Game {
     this.ticksStar++;
   }
 
-  addPlatform() {
-    if (this.counter === 200 && this.counter % 200 === 0) {
-      this.platform.push(new Platform(ctx));
-    }
-  }
-
   isCollision() {
     const pamel = this.pamel;
 
@@ -138,16 +117,17 @@ class Game {
         this.ouch.play();
         this.rocks.splice(i, 1);
         pamel.health -= 1;
-        this.frames -= 1; // resta puntos de score
+        this.frames -= 1;
       }
       if (pamel.health === 0) {
         this.music.pause();
         this.gameOverm.play();
+        this.Image;
         this.gameOver = true;
         this.stop();
       }
     });
-    
+
     this.star.forEach((e, i) => {
       const obsX = pamel.x + pamel.w > e.x && pamel.x < e.x + e.w;
       const obsY = pamel.y + pamel.h > e.y && pamel.y < e.y + e.h;
@@ -155,21 +135,8 @@ class Game {
         this.points.play();
         this.star.splice(i, 1);
         pamel.health++;
-        this.frames += 5; // gana puntos en score
+        this.frames += 3;
       }
-    });
-
-    this.platform.forEach((floor) => {
-      
-      const obsX =
-        pamel.x < floor.x + floor.w && pamel.x + pamel.w > pamel.x;
-      const obsY =
-        pamel.y < floor.y + floor.h && pamel.y + pamel.h > floor.y;
-
-        if (pamel.x + pamel.w - 100 > floor.x + floor.w)
-          pamel.y = 350
-          pamel.y0 = pamel.y
-    
     });
   }
 

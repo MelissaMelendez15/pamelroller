@@ -30,7 +30,6 @@ class Background {
     this.y += this.vy;
 
     if (this.x + this.w <= 0)
-      // la posicion x + el ancho si es menor a 0 se reinicia
-      this.x = 0;
+        this.x = 0;
   }
 }
