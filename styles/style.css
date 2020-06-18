@@ -6,23 +6,19 @@ body {
 #canvas {
     display: block;
     border: 1px;
-    margin:  auto;
+    margin-bottom: 25px;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #start{
-width: 4%;
+width: 5%;
 
 
-}
-
-#stop{
-   width: 4%;
-   
 }
 

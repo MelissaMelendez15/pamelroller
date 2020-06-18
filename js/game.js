@@ -32,15 +32,27 @@ class Game {
 
     this.counter = 0
 
-    this.gameOver = false;
     this.gameOver = new Image();
-    this.gameOver.src = "images/dead.png"
+    this.gameOver.src = "images/gameover.png"
+
+    this.music = new Audio()
+    this.music.src = "music/music.mp3"
+    this.ouch = new Audio
+    this.ouch.src = "music/ouch.mp3"
+    this.points = new Audio()
+    this.points.src = "music/star.mp3"
+    this.jumpm = new Audio()
+    this.jumpm = "music/jump.mp3"
+    this.gameOverm = new Audio()
+    this.gameOverm.src = "music/gameover.mp3"
 
   }
 
   start() {
+    this.music.play()
     // boton inicio del juego con la llamada en index
     this._intervalId = setInterval(() => {
+
       if (this.counter > 100) {
           this.counter = 0
       }
@@ -50,13 +62,14 @@ class Game {
       this.addStar();
       this.addPlatform();
       this.isCollision();
+      this.drawGameOver();
       this.draw();
       this.move();
     }, 1000 / 60);
     
 
     setTimeout(() => {
-        this.gameOver()
+      this.stop()
     },100000)
   }
 
@@ -132,18 +145,24 @@ class Game {
       const obsX = pamel.x + pamel.w > obs.x && pamel.x < obs.x + obs.w;
       const obsY = pamel.y + pamel.h > obs.y && pamel.y < obs.y + obs.h;
       if (obsX && obsY) {
+        this.ouch.play()
         this.rocks.splice(i, 1);
         pamel.health -= 1;
         this.frames -= 1; // resta puntos de score
       }
       if (pamel.health === 0) {
-        this.gameOver();
+        this.music.pause()
+        this.gameOverm.play()
+        this.gameOver = true
+        this.stop()
+
       }
     });
     this.star.forEach((e, i) => {
       const obsX = pamel.x + pamel.w > e.x && pamel.x < e.x + e.w;
       const obsY = pamel.y + pamel.h > e.y && pamel.y < e.y + e.h;
       if (obsX && obsY) {
+        this.points.play()
         this.star.splice(i, 1);
         pamel.health++;
         this.frames += 5; // gana 10 puntos en score
@@ -167,7 +186,20 @@ class Game {
       }
     });
   }
-  gameOver() {
+
+  drawGameOver() {
+    if (this.gameOver) {
+      this.ctx.drawImage(
+        this.gameOver,
+        this.x,
+        this.y,
+        this.w,
+        this.h
+      )
+    }
+  }
+stop() {
     clearInterval(this.intervalId);
+  
   }
 }

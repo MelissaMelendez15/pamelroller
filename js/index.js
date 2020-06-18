@@ -8,9 +8,5 @@ window.onload = () => {
         game.start('start')
     }
 
-    document.getElementById('stop').onclick = () => {
-        game.stop('stop')
-}
-
 }
 //onclick para un solo click que queremos hacer por ejemplo play 
